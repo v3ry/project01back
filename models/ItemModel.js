@@ -24,6 +24,9 @@ const Recipe = db.define('recipes',{
     },
     publication_date:{
         type: DataTypes.DATE
+    },
+    createdBy:{
+        type: DataTypes.STRING
     }
 },{
     freezeTableName:true
