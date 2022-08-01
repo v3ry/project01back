@@ -1,6 +1,4 @@
 import Users from "../models/ContactModel.js";
-import bcrypt from "bcrypt";
-import jwt from "jsonwebtoken";
 
 export const getContact = async(req, res) => {
     try {
@@ -39,21 +37,6 @@ export const addContact = async(req, res) => {
         console.log(error);
     }
 
-    // const { name, email, password, confPassword } = req.body;
-    // if(password !== confPassword) return res.status(400).json({msg: "Password and Confirm Password do not match"});
-    // const salt = await bcrypt.genSalt();
-    // const hashPassword = await bcrypt.hash(password, salt);
-    // try {
-    //     await Users.create({
-    //         name: name,
-    //         email: email,
-    //         password: hashPassword
-    //     });
-    //     res.json({msg: "Register Successful"});
-    // } catch (error) {
-    //     res.status(404).json({msg:"Email  or name already in use"});
-    //     console.log(error);
-    // }
 }
 
 export const updContact = async(req, res) => {
