@@ -1,9 +1,6 @@
 import express from "express";
 import { getItems,addItems,delItems,getOneItems,updItems } from "../controllers/Items.js";
-import { verifyToken } from "../middleware/VerifyToken.js";
-import { verifyTokenAdvanced } from "../middleware/VerifyToken2.js";
-import { verifyTokenUser } from "../middleware/VerifyTokenUser.js";
-
+import { verifyToken,verifyTokenAdvanced,verifyTokenUser } from "../middleware/VerifyToken.js";
 
 const router = express.Router();
 

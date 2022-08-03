@@ -1,6 +1,6 @@
 import express from "express";
 import { getContact,delContact,addContact,updContact } from "../controllers/Contact.js";
-import { verifyTokenAdvanced } from "../middleware/VerifyToken2.js";
+import { verifyTokenAdvanced } from "../middleware/VerifyToken.js";
 
 const router = express.Router();
 
