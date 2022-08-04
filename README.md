@@ -1,9 +1,8 @@
 # project01back
 
-Add Databse.js file in config folder.
+Add Database.js file in config folder.
 
 ```js
-{
 import {Sequelize} from "sequelize";
 
 const db = new Sequelize('project01','LOGIN','PASSWORD',{
@@ -12,4 +11,3 @@ const db = new Sequelize('project01','LOGIN','PASSWORD',{
 });
 
 export default db;
-}
