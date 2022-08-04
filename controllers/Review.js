@@ -3,7 +3,7 @@ import Users from "../models/ReviewModel.js";
 export const getReview = async(req, res) => {
     try {
         const users = await Users.findAll({
-            attributes:['id','date','userId','review','reviewType']
+            attributes:['id','recId','userId','review','reviewType']
         });
         res.json(users);
     } catch (error) {
