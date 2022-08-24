@@ -4,7 +4,7 @@ import { verifyTokenAdvanced,verifyTokenUser } from "../middleware/VerifyToken.j
 
 const router = express.Router();
 
-router.get('/api/comment',verifyTokenAdvanced, getComment);
+router.get('/api/comment', getComment);
 router.post('/api/comment',verifyTokenUser, addComment);
 router.put('/api/comment/:id',verifyTokenUser, updComment);
 router.delete('/api/comment/:id',verifyTokenUser, delComment);

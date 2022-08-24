@@ -3,7 +3,7 @@ import Users from "../models/CommentModel.js";
 export const getComment = async(req, res) => {
     try {
         const users = await Users.findAll({
-            attributes:['id','rec_id','user_id','comment']
+            attributes:['id','rec_id','usr_id','comment']
         });
         res.json(users);
     } catch (error) {
@@ -12,11 +12,11 @@ export const getComment = async(req, res) => {
 }
 
 export const addComment = async(req, res) => {
-    const { rec_id, user_id, comment } = req.body;
+    const { rec_id, usr_id, comment } = req.body;
     try {
         await Users.create({
             rec_id: rec_id,
-            user_id: user_id,
+            usr_id: usr_id,
             comment: comment,
         });
         res.json({msg: "Register Review Successful"});
@@ -26,12 +26,12 @@ export const addComment = async(req, res) => {
 }}
 
 export const updComment = async(req, res) => {
-    const { rec_id, user_id, comment } = req.body;
+    const { rec_id, usr_id, comment } = req.body;
     try {
         await Users.update(
             {id: req.params.id,
             rec_id: rec_id,
-            user_id: user_id,
+            usr_id: usr_id,
             comment: comment,},
             {where:{id: req.params.id}}
         );
