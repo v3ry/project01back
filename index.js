@@ -8,6 +8,7 @@ import routerItems from "./routes/items.js";
 import routerContact from "./routes/contact.js";
 import routerReview from "./routes/review.js";
 import routerNews from "./routes/news.js"
+import routerComment from "./routes/comment.js"
 
 dotenv.config();
 const app = express();
@@ -28,6 +29,7 @@ app.use(routerItems);
 app.use(routerContact);
 app.use(routerReview);
 app.use(routerNews);
+app.use(routerComment);
 console.log(0.1+0.2);
 let port = 4002
 app.listen(port, ()=> console.log('Server running at port '+port));
