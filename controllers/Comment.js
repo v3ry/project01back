@@ -1,11 +1,26 @@
 import Users from "../models/CommentModel.js";
+import { Sequelize } from "sequelize";
+import db from "../config/Database.js";
 
+const { DataTypes } = Sequelize;
+// export const getComment = async(req, res) => {
+//     try {
+//         const users = await Users.findAll({
+//             attributes:['id','rec_id','usr_id','comment']
+//         });
+//         res.json(users);
+//     } catch (error) {
+//         console.log(error);
+//     }
+// }
+import {QueryTypes} from "sequelize"
+// const { QueryTypes } = require('sequelize');
 export const getComment = async(req, res) => {
     try {
-        const users = await Users.findAll({
-            attributes:['id','rec_id','usr_id','comment']
-        });
-        res.json(users);
+        const [results, metadata] = await Users.sequelize.query(
+            "SELECT c.id,c.rec_id, c.comment, name FROM comment AS c INNER JOIN users AS u ON c.usr_id=u.id"
+        );
+        res.json(results);
     } catch (error) {
         console.log(error);
     }
@@ -19,7 +34,7 @@ export const addComment = async(req, res) => {
             usr_id: usr_id,
             comment: comment,
         });
-        res.json({msg: "Register Review Successful"});
+        res.json({msg: "Register Comment Successful"});
     } catch (error) {
         res.status(404).json({msg:"Email  or name already in use"});
         console.log(error);
