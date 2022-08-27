@@ -7,6 +7,6 @@ const router = express.Router();
 router.get('/api/comment', getComment);
 router.post('/api/comment',verifyToken, addComment);
 router.put('/api/comment/:id',verifyToken, updComment);
-router.delete('/api/comment/:id',verifyToken, delComment);
+router.delete('/api/comment/:id',verifyTokenUser, delComment);
 
 export default router;

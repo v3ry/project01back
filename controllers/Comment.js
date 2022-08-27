@@ -1,19 +1,5 @@
 import Users from "../models/CommentModel.js";
-import { Sequelize } from "sequelize";
-import db from "../config/Database.js";
 
-const { DataTypes } = Sequelize;
-// export const getComment = async(req, res) => {
-//     try {
-//         const users = await Users.findAll({
-//             attributes:['id','rec_id','usr_id','comment']
-//         });
-//         res.json(users);
-//     } catch (error) {
-//         console.log(error);
-//     }
-// }
-import {QueryTypes} from "sequelize"
 // const { QueryTypes } = require('sequelize');
 export const getComment = async(req, res) => {
     try {
@@ -66,3 +52,16 @@ export const delComment = async(req, res) => {
         console.log(error);
     }
 }
+
+
+
+// export const getComment = async(req, res) => {
+//     try {
+//         const users = await Users.findAll({
+//             attributes:['id','rec_id','usr_id','comment']
+//         });
+//         res.json(users);
+//     } catch (error) {
+//         console.log(error);
+//     }
+// }
