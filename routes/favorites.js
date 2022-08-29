@@ -1,12 +1,12 @@
 import express from "express";
-import { getComment,addComment,updComment,delComment } from "../controllers/Comment.js";
+import { getFavorites,getFavoritesFromUser,addFavorite,delFavorite } from "../controllers/Favorites.js";
 import { verifyTokenAdvanced,verifyTokenUser,verifyToken } from "../middleware/VerifyToken.js";
 
 const router = express.Router();
 
-router.get('/api/favorites', getComment);
-router.post('/api/favorites',verifyToken, addComment);
-router.put('/api/favorites/:id',verifyToken, updComment);
-router.delete('/api/favorites/:id',verifyToken, delComment);
+router.get('/api/favorites', getFavorites);
+router.get('/api/favorites/:login', getFavoritesFromUser);
+router.post('/api/favorites',verifyToken, addFavorite);
+router.delete('/api/favorites/:id',verifyTokenUser, delFavorite);
 
 export default router;
