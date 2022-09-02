@@ -3,7 +3,7 @@ import Users from "../models/FavoritesModel.js";
 export const getFavorites = async(req, res) => {
     try {
         const [results, metadata] = await Users.sequelize.query(
-            "SELECT f.rec_id, name FROM favorites AS f INNER JOIN users AS u ON f.usr_id=u.id "
+            "SELECT f.id, f.rec_id, name FROM favorites AS f INNER JOIN users AS u ON f.usr_id=u.id "
         );
         res.json(results);
     } catch (error) {
@@ -15,7 +15,7 @@ export const getFavoritesFromUser = async(req, res) => {
     console.log(login);
     try {
         const [results, metadata] = await Users.sequelize.query(
-            `SELECT f.rec_id, name FROM favorites AS f INNER JOIN users AS u ON f.usr_id=u.id WHERE name = "${login}"`
+            `SELECT f.id,f.rec_id, name FROM favorites AS f INNER JOIN users AS u ON f.usr_id=u.id WHERE name = "${login}"`
         );
         res.json(results);
     } catch (error) {

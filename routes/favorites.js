@@ -7,6 +7,6 @@ const router = express.Router();
 router.get('/api/favorites', getFavorites);
 router.get('/api/favorites/:login', getFavoritesFromUser);
 router.post('/api/favorites',verifyToken, addFavorite);
-router.delete('/api/favorites/:id',verifyTokenUser, delFavorite);
+router.delete('/api/favorites/:id',verifyToken, delFavorite);
 
 export default router;
